@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import MobileDrawer from './MobileDrawer';
 
 const navLinks = [
-  { name: 'Home', href: '#' },
+  { name: 'Home', href: '/' },
   {
     name: 'Departments',
     href: '#departments',
     dropdown: [
-      { name: 'SSCCS', href: '#ssccs' },
-      { name: 'SSCCM', href: '#ssccm' },
+      { name: 'SSCCS', href: '/ssccs', isRoute: true },
+      { name: 'SSCCM', href: '/ssccm', isRoute: true },
     ],
   },
   { name: 'Updates', href: '#updates' },
@@ -93,16 +94,27 @@ const Navbar = () => {
                           : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
                       }`}
                     >
-                      {link.dropdown.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => setDropdownOpen(false)}
-                          className="block px-4 py-3 text-sm text-[#0B1F3F]/80 hover:text-[#0B1F3F] hover:bg-[#FF9500]/8 transition-colors duration-150 border-b border-gray-100 last:border-0"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+                      {link.dropdown.map((item) =>
+                        item.isRoute ? (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            onClick={() => setDropdownOpen(false)}
+                            className="block px-4 py-3 text-sm text-[#0B1F3F]/80 hover:text-[#0B1F3F] hover:bg-[#FF9500]/8 transition-colors duration-150 border-b border-gray-100 last:border-0"
+                          >
+                            {item.name}
+                          </Link>
+                        ) : (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            onClick={() => setDropdownOpen(false)}
+                            className="block px-4 py-3 text-sm text-[#0B1F3F]/80 hover:text-[#0B1F3F] hover:bg-[#FF9500]/8 transition-colors duration-150 border-b border-gray-100 last:border-0"
+                          >
+                            {item.name}
+                          </a>
+                        )
+                      )}
                     </div>
                   </li>
                 ) : (

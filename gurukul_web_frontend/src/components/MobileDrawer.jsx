@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   X,
   ChevronDown,
@@ -90,13 +91,23 @@ const MobileDrawer = ({ isOpen, onClose, navLinks }) => {
                       <ul className="ml-4 pl-4 border-l-2 border-[#FF9500]/20 space-y-0.5 py-1">
                         {link.dropdown.map((item) => (
                           <li key={item.name}>
-                            <a
-                              href={item.href}
-                              onClick={handleLinkClick}
-                              className="block px-3 py-2.5 rounded-lg text-sm text-[#0B1F3F]/70 hover:text-[#FF9500] hover:bg-[#FF9500]/5 transition-all duration-200"
-                            >
-                              {item.name}
-                            </a>
+                            {item.isRoute ? (
+                              <Link
+                                to={item.href}
+                                onClick={handleLinkClick}
+                                className="block px-3 py-2.5 rounded-lg text-sm text-[#0B1F3F]/70 hover:text-[#FF9500] hover:bg-[#FF9500]/5 transition-all duration-200"
+                              >
+                                {item.name}
+                              </Link>
+                            ) : (
+                              <a
+                                href={item.href}
+                                onClick={handleLinkClick}
+                                className="block px-3 py-2.5 rounded-lg text-sm text-[#0B1F3F]/70 hover:text-[#FF9500] hover:bg-[#FF9500]/5 transition-all duration-200"
+                              >
+                                {item.name}
+                              </a>
+                            )}
                           </li>
                         ))}
                       </ul>

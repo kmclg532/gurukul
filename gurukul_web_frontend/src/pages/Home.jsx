@@ -1,19 +1,39 @@
 import React from 'react';
+import MainLayout from '../components/MainLayout';
 import HeroSection from '../components/HeroSection';
+import DepartmentsSection from '../components/DepartmentsSection';
+import AcademicLevelsSection from '../components/AcademicLevelsSection';
+import WhyStudySection from '../components/sections/WhyStudySection';
+import StatsSection from '../components/sections/StatsSection';
+import AboutSection from '../components/sections/AboutSection';
+import UpdatesSection from '../components/sections/UpdatesSection';
 
 const Home = () => {
   return (
-    <main>
-      {/* Hero Section with cinematic image slider */}
-      <HeroSection />
+    <MainLayout>
+      <main>
+        {/* Hero Section with cinematic image slider */}
+        <HeroSection />
 
-      {/* Placeholder for upcoming sections */}
-      <section className="min-h-screen bg-linear-to-b from-[#FFF7ED] to-white flex items-center justify-center">
-        <p className="text-2xl text-[#0B1F3F]/40 font-medium">
-          More sections coming soon...
-        </p>
-      </section>
-    </main>
+        {/* Departments Section */}
+        <DepartmentsSection />
+
+        {/* Academic Levels Section */}
+        <AcademicLevelsSection />
+
+        {/* Why Study at Gurukul */}
+        <WhyStudySection />
+
+        {/* Stats Section */}
+        <StatsSection />
+
+        {/* About Us Section */}
+        <AboutSection />
+
+        {/* Circulars & Updates Section */}
+        <UpdatesSection />
+      </main>
+    </MainLayout>
   );
 };
 

@@ -9,6 +9,7 @@ const AboutSection = () => {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 overflow-hidden"
       style={{

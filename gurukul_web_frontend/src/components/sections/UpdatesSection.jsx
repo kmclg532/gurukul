@@ -89,7 +89,7 @@ const UpdatesSection = () => {
   const isInView = useInView(sectionRef, { once: true, margin: '-60px' });
 
   return (
-    <section ref={sectionRef} className="relative py-20 sm:py-28 bg-white overflow-hidden">
+    <section id="updates" ref={sectionRef} className="relative py-20 sm:py-28 bg-white overflow-hidden">
       {/* Subtle top separator */}
       <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-gray-200 to-transparent" />
 

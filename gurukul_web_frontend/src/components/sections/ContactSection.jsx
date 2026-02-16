@@ -9,6 +9,7 @@ const ContactSection = () => {
 
   return (
     <section
+      id="contact"
       ref={sectionRef}
       className="relative py-20 sm:py-28 bg-white"
     >

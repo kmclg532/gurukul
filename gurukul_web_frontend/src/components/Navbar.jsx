@@ -22,6 +22,19 @@ const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const dropdownTimeout = useRef(null);
+
+  // Hover handlers for dropdown with small delay to prevent flicker
+  const handleMouseEnter = () => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeout.current = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 150);
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -69,26 +82,33 @@ const Navbar = () => {
             </a>
 
             {/* Middle: Nav Links (Desktop) */}
-            <ul className="hidden lg:flex items-center gap-1">
+            <ul className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) =>
                 link.dropdown ? (
-                  <li key={link.name} className="relative" ref={dropdownRef}>
+                  <li
+                    key={link.name}
+                    className="relative"
+                    ref={dropdownRef}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     <button
-                      onClick={() => setDropdownOpen(!dropdownOpen)}
-                      className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-[#0B1F3F]/80 hover:text-[#0B1F3F] hover:bg-[#0B1F3F]/5 transition-all duration-200"
+                      className="relative flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-[#0B1F3F]/70 hover:text-[#0B1F3F] transition-colors duration-200 group"
                     >
                       {link.name}
                       <ChevronDown
-                        size={15}
+                        size={14}
                         className={`transition-transform duration-200 ${
                           dropdownOpen ? 'rotate-180' : ''
                         }`}
                       />
+                      {/* Hover underline accent */}
+                      <span className="absolute bottom-0.5 left-4 right-4 h-[2px] bg-[#FF9500] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                     </button>
 
                     {/* Dropdown */}
                     <div
-                      className={`absolute top-full left-0 mt-1 w-48 bg-white/90 backdrop-blur-xl rounded-xl shadow-lg border border-gray-200/50 overflow-hidden transition-all duration-200 origin-top ${
+                      className={`absolute top-full left-0 mt-1.5 w-48 bg-white rounded-xl shadow-lg shadow-[#0B1F3F]/6 border border-[#0B1F3F]/6 overflow-hidden transition-all duration-200 origin-top ${
                         dropdownOpen
                           ? 'opacity-100 scale-100 translate-y-0'
                           : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
@@ -100,8 +120,9 @@ const Navbar = () => {
                             key={item.name}
                             to={item.href}
                             onClick={() => setDropdownOpen(false)}
-                            className="block px-4 py-3 text-sm text-[#0B1F3F]/80 hover:text-[#0B1F3F] hover:bg-[#FF9500]/8 transition-colors duration-150 border-b border-gray-100 last:border-0"
+                            className="flex items-center gap-2 px-4 py-3 text-sm text-[#0B1F3F]/70 hover:text-[#FF9500] hover:bg-[#FF9500]/5 transition-colors duration-150 border-b border-[#0B1F3F]/4 last:border-0"
                           >
+                            <span className="w-1 h-1 rounded-full bg-[#FF9500]/40" />
                             {item.name}
                           </Link>
                         ) : (
@@ -109,21 +130,33 @@ const Navbar = () => {
                             key={item.name}
                             href={item.href}
                             onClick={() => setDropdownOpen(false)}
-                            className="block px-4 py-3 text-sm text-[#0B1F3F]/80 hover:text-[#0B1F3F] hover:bg-[#FF9500]/8 transition-colors duration-150 border-b border-gray-100 last:border-0"
+                            className="flex items-center gap-2 px-4 py-3 text-sm text-[#0B1F3F]/70 hover:text-[#FF9500] hover:bg-[#FF9500]/5 transition-colors duration-150 border-b border-[#0B1F3F]/4 last:border-0"
                           >
+                            <span className="w-1 h-1 rounded-full bg-[#FF9500]/40" />
                             {item.name}
                           </a>
                         )
                       )}
                     </div>
                   </li>
+                ) : link.href === '/' ? (
+                  <li key={link.name}>
+                    <Link
+                      to={link.href}
+                      className="relative px-4 py-2 rounded-lg text-sm font-medium text-[#0B1F3F]/70 hover:text-[#0B1F3F] transition-colors duration-200 group"
+                    >
+                      {link.name}
+                      <span className="absolute bottom-0.5 left-4 right-4 h-[2px] bg-[#FF9500] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                    </Link>
+                  </li>
                 ) : (
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="px-4 py-2 rounded-lg text-sm font-medium text-[#0B1F3F]/80 hover:text-[#0B1F3F] hover:bg-[#0B1F3F]/5 transition-all duration-200"
+                      className="relative px-4 py-2 rounded-lg text-sm font-medium text-[#0B1F3F]/70 hover:text-[#0B1F3F] transition-colors duration-200 group"
                     >
                       {link.name}
+                      <span className="absolute bottom-0.5 left-4 right-4 h-[2px] bg-[#FF9500] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
                     </a>
                   </li>
                 )

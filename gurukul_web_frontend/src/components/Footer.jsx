@@ -1,18 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
 
 const quickLinks = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '/', isRoute: true },
   { label: 'About', href: '#about' },
   { label: 'Departments', href: '#departments' },
   { label: 'Contact', href: '#contact' },
 ];
 
 const academics = [
-  { label: 'SSCCS', href: '/ssccs' },
-  { label: 'SSCCM', href: '/ssccm' },
-  { label: 'Admissions', href: '#admissions' },
-  { label: 'Circulars', href: '#circulars' },
+  { label: 'SSCCS', href: '/ssccs', isRoute: true },
+  { label: 'SSCCM', href: '/ssccm', isRoute: true },
+  { label: 'Admissions', href: '#contact' },
+  { label: 'Circulars', href: '#updates' },
 ];
 
 const socials = [
@@ -59,12 +60,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/50 hover:text-[#FF9500] transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
+                  {link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-white/50 hover:text-[#FF9500] transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/50 hover:text-[#FF9500] transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -78,12 +88,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {academics.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-white/50 hover:text-[#FF9500] transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
+                  {link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-white/50 hover:text-[#FF9500] transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-white/50 hover:text-[#FF9500] transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

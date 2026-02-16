@@ -10,11 +10,19 @@ const AboutSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 sm:py-28 overflow-hidden"
+      className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 overflow-hidden"
       style={{
         background: 'linear-gradient(to bottom, #FFF7ED, #ffffff)',
       }}
     >
+      {/* Top gradient overlay — smooth transition from Stats navy */}
+      <div
+        className="absolute top-0 left-0 w-full h-20 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, white, transparent)',
+        }}
+      />
+
       {/* Swirl Background — subtle, positioned top-right */}
       <img
         src="/others/swirl.png"
@@ -60,7 +68,7 @@ const AboutSection = () => {
             </h2>
 
             <p className="text-base sm:text-lg text-[#0B1F3F]/60 leading-relaxed mb-5">
-              Shree Swaminarayan Gurukul International School & College stands
+              Shree Swaminarayan Gurukul School & College stands
               as a beacon of holistic education, combining academic rigor with
               cultural values and character building since its inception.
             </p>

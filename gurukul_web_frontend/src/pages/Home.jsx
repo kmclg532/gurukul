@@ -7,6 +7,8 @@ import WhyStudySection from '../components/sections/WhyStudySection';
 import StatsSection from '../components/sections/StatsSection';
 import AboutSection from '../components/sections/AboutSection';
 import UpdatesSection from '../components/sections/UpdatesSection';
+import ReviewsSection from '../components/sections/ReviewsSection';
+import ContactSection from '../components/sections/ContactSection';
 
 const Home = () => {
   return (
@@ -32,6 +34,12 @@ const Home = () => {
 
         {/* Circulars & Updates Section */}
         <UpdatesSection />
+
+        {/* Reviews Section */}
+        <ReviewsSection />
+
+        {/* Contact Us Section */}
+        <ContactSection />
       </main>
     </MainLayout>
   );

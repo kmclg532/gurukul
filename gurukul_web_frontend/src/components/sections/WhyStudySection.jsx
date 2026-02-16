@@ -7,7 +7,7 @@ import whyStudyData from '../../constants/whyStudyData';
 /* Mini stat highlights for left column bottom */
 const miniStats = [
   { label: '25+ Years Legacy', icon: Award },
-  { label: 'NAAC Accredited', icon: ShieldCheck },
+//   { label: 'NAAC Accredited', icon: ShieldCheck },
   { label: '100+ Faculty Members', icon: Users },
 ];
 

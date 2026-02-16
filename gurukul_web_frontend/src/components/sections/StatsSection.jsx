@@ -75,7 +75,7 @@ const StatsSection = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 sm:pb-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 sm:pb-32">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 mt-14 md:mt-14">
             {statsData.map((stat, index) => {
               const isHighlight = stat.highlight;
@@ -94,18 +94,18 @@ const StatsSection = () => {
                 >
                   {isHighlight ? (
                     /* ── Highlight Card (Students / Faculties) ── */
-                    <div className="w-full rounded-xl px-6 py-7 sm:px-8 sm:py-8 md:-translate-y-12 border border-[#FF9500]/20 shadow-lg shadow-[#FF9500]/5 hover:shadow-xl hover:shadow-[#FF9500]/8 hover:-translate-y-1 md:hover:-translate-y-14 transition-all duration-300 bg-[#001F3F] md:bg-[#FF9500]">
-                      <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#001F3F] tracking-tight leading-none mb-3">
+                    <div className="w-full rounded-xl px-7 py-8 sm:px-9 sm:py-9 md:-translate-y-10 border border-[#FF9500]/12 shadow-md shadow-[#FF9500]/4 hover:shadow-lg hover:shadow-[#FF9500]/6 hover:-translate-y-1 md:hover:-translate-y-12 transition-all duration-300 bg-[#001F3F] md:bg-[#ffb246]">
+                      <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3F] tracking-tight leading-none mb-4">
                         <AnimatedCounter
                           value={stat.value}
                           suffix={stat.suffix}
                           shouldAnimate={isInView}
                         />
                       </h3>
-                      <p className="text-base sm:text-lg font-semibold text-white/80 md:text-[#0B1F3F]/70">
+                      <p className="text-base sm:text-lg font-medium text-white/80 md:text-[#0B1F3F]/80">
                         {stat.label}
                       </p>
-                      <p className="text-xs text-white/30 md:text-[#0B1F3F]/35 mt-1 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-white/30 md:text-[#0B1F3F]/50 mt-1.5 leading-relaxed">
                         {stat.description}
                       </p>
                     </div>

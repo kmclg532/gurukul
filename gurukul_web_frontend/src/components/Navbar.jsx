@@ -71,7 +71,7 @@ const Navbar = () => {
                 alt="Gurukul Logo"
                 className="h-10 md:h-14 w-auto object-contain"
               />
-              <div className="hidden sm:block">
+              <div className="sm:block">
                 <h1 className="text-base md:text-lg font-bold text-[#0B1F3F] leading-tight tracking-tight">
                   Shree Swaminarayan College
                 </h1>

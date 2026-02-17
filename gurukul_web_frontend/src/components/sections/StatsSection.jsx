@@ -95,7 +95,8 @@ const StatsSection = () => {
                   {isHighlight ? (
                     /* ── Highlight Card (Students / Faculties) ── */
                     <div className="w-full rounded-xl px-7 py-8 sm:px-9 sm:py-9 md:-translate-y-10 border border-[#FF9500]/12 shadow-md shadow-[#FF9500]/4 hover:shadow-lg hover:shadow-[#FF9500]/6 hover:-translate-y-1 md:hover:-translate-y-12 transition-all duration-300 bg-[#001F3F] md:bg-[#ffb246]">
-                      <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B1F3F] tracking-tight leading-none mb-4">
+                      <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#fff] md:text-[white]/ tracking-tight leading-none mb-4">
+                      
                         <AnimatedCounter
                           value={stat.value}
                           suffix={stat.suffix}

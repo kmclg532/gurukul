@@ -62,8 +62,8 @@ const HeroSection = () => {
       </AnimatePresence>
 
       {/* ── Gradient Overlay ── */}
-      <div className="absolute inset-0 bg-linear-to-r from-[#0B1F3F]/90 via-[#0B1F3F]/70 to-[#0B1F3F]/40" />
-      <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3F]/60 via-transparent to-[#0B1F3F]/30" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#0B1F3F]/90 via-[#0B1F3F]/0 to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-[#0B1F3F]/40 via-transparent to-transparent" />
 
       {/* ── Main Content ── */}
       <div className="relative z-10 h-full flex items-center">
